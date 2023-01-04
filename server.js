@@ -45,6 +45,9 @@ app.use('/sessions', sessionsController)
 const liveController = require('./controllers/live.js')
 app.use('/live', liveController)
 
+const rulesController = require('./controllers/rules.js')
+app.use('/rules', rulesController)
+
 ////I
 app.get('/', (req, res) => {
 	if (req.session.currentUser) {

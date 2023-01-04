@@ -6,7 +6,6 @@ const livechat = require('../models/live.js')
 //Index
 
 router.get('/', (req, res) => {
-    // if (req.session.currentUser) {
         livechat.find({}, (err, foundLive) =>{
             if (req.session.currentUser) {
                 res.render('live/index.ejs', {

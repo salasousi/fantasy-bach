@@ -7,6 +7,7 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 
 
+
 // Database Configuration
 mongoose.connect(process.env.DATABASE_URL, {
 	useNewUrlParser: true,
@@ -41,6 +42,9 @@ app.use('/users', userController)
 const sessionsController = require('./controllers/sessions')
 app.use('/sessions', sessionsController)
 
+const liveController = require('./controllers/live.js')
+app.use('/live', liveController)
+
 ////I
 app.get('/', (req, res) => {
 	if (req.session.currentUser) {
@@ -53,6 +57,16 @@ app.get('/', (req, res) => {
 		});
 	}
 })
+
+
+
+////N
+////D
+////U
+////C
+////E
+////S
+
 
 // Listener
 const PORT = process.env.PORT;

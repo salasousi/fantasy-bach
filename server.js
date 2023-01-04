@@ -48,6 +48,9 @@ app.use('/live', liveController)
 const rulesController = require('./controllers/rules.js')
 app.use('/rules', rulesController)
 
+const teamController = require('./controllers/myteam.js')
+app.use('/myteam', teamController)
+
 ////I
 app.get('/', (req, res) => {
 	if (req.session.currentUser) {

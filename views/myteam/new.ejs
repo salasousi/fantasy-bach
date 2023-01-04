@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 	<meta charset="UTF-8">
@@ -14,12 +13,17 @@
 </head>
 
 <body>
-	
-	<h1>Dashboard</h1>
-
-	<%- include('./partials/home.ejs')  %>
-
-	
+	<header>
+		<h1>Add a Player</h1>
+		<%- include('../partials/nav.ejs')  %>
+	</header>
+	<main>
+		<form action="/myteam" method="POST">
+			<input type="text" name="name" placeholder="name" /><br />
+			<input type="submit" value="Add to team" />
+		</form>
+	</main>
 </body>
 
 </html>
+

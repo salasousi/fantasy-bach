@@ -15,27 +15,37 @@
 
 
 	<body>
-        <%- include('../partials/nav.ejs')  %>
+        
 		<header>
-			<h1>Live Chat</h1>
+			<%- include('../partials/nav.ejs')  %>
         </header>
-			<nav>
-				<ul>
-					<li>
-						<a href="/live/new">Create a new post</a>
-					</li>
-				</ul>
-			</nav>
-            <main>
-                <h2>List of Posts</h2>
+
+        <div class="container-fluid p-5 bg-dark text-white" style="margin-top: 7%">
+            <h1 style="text-align: center;">Chat Room</h1>
+            <p style="text-align: center;">A place to chat with Bachelor Nation</p>
+        </div>
+			
+            <div class="container float-start" style="width:750px; padding-top: 5%;">
+                <h2>Recent Posts</h2>
+                <hr></hr>
                 <ul>
                     <% for(let i = 0; i < live.length; i++){ %>
-                    <li>
-                        <a href="/live/<%=live[i]._id%>"><%= live[i].title %></a>
-                        <%= live[i].body %>
-                    </li>
+                        <h4><%= live[i].title %></h4>
+                        <p><%= live[i].body %></p>
+                        
                     <% } %>
                 </ul>
-            </main>
+            </div>
+
+            <div class="container p-5 bg-dark text-white float-end" style="width:400px; margin-top: 5%; margin-right: 5%;">
+				
+			    <h4>Create a new post</h4><hr></hr>
+                <form action="/live" method="POST">
+                    <input type="text" name="title" placeholder="Name your post" style="margin-bottom: 5%;"/>
+                    <textarea name="body" placeholder="Start chatting here..."></textarea><br />
+                    <input type="submit" value="Share" />
+                </form>
+					
+            </div>
 	</body>
 </html>

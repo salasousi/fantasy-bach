@@ -19,8 +19,31 @@
     </header>
 
     <div class="container p-5 bg-dark text-white" style="margin-top: 10%;">
-        <h1><%=currentUser.teamName%></h1>
+        <h1>Team: <%=currentUser.teamName%></h1>
+        <hr></hr>
+        <h4>Starting Lineup</h4>
+        <br />
+        <img src="" class="rounded-circle float-start" alt="Cinque Terre" width="200" height="200">
+        <img src="" class="rounded-circle" alt="Cinque Terre" width="200" height="200" style="margin-left:20%;">
+        <img src="" class="rounded-circle float-end" alt="Cinque Terre" width="200" height="200"><br />
+    
     </div>
+    <form action="/myteam" method="POST">
+        <input type="text" name="name" placeholder="name" /><br />
+        <input type="submit" value="Add to team" />
+    </form>
+    <h1>Players: </h1>
+    <ul>
+        <% for(let i = 0; i < player.length; i++){ %>
+        <li>
+            <a href="/myteam/<%=player[i]._id%>"><%= player[i].name %></a>
+            <%= player[i].bio %>
+        </li>
+        <% } %>
+    </ul>
+    <form action="/myteam/<%=player._id%>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete Player" />
+    </form>
 
 </body>
 </html>

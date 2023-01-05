@@ -6,41 +6,35 @@ const livechat = require('../models/live.js')
 //Index
 
 router.get('/', (req, res) => {
-        livechat.find({}, (err, foundLive) =>{
-            if (req.session.currentUser) {
-                res.render('live/index.ejs', {
-                    live: foundLive,
-                    currentUser: req.session.currentUser
-                })
-            } else {
-                res.render('index.ejs', {
-                    currentUser: req.session.currentUser
-                })
-            } 
-	    })
+    livechat.find({}, (err, foundLive) =>{
+        res.render('live/index.ejs', {
+            live: foundLive,
+            currentUser: req.session.currentUser
+        })
+        })
 })
 
 
 
 //New
 router.get('/new', (req, res) => {
-    if (req.session.currentUser) {
-	    res.render('live/new.ejs', {
-            currentUser: req.session.currentUser
-        })
-    } else {
-        res.render('index.ejs', {
-            currentUser: req.session.currentUser
-        })
-    }
+	    res.render('live/new.ejs')
 })
 
-//Delete
+//Delete-- NEED TO FIGURE OUT AUTHENTICATION FOR DELETE GRANTED ONLY TO USER WHO POSTED
 router.delete('/:id', (req, res) => {
-	livechat.findByIdAndRemove(req.params.id, () => {
-		res.redirect('/live')
-	})
-})
+    // if (req.session.currentUser) {
+ 	livechat.findByIdAndRemove(req.params.id, () => {
+		 res.redirect('/live')
+        // currentUser: req.session.currentUser
+        // })
+    })
+//     } else {
+//            res.render('index.ejs', {
+//                 currentUser: req.session.currentUser
+//              })
+//  	}
+ })
 
 //Update
 router.put('/:id', (req, res) => {

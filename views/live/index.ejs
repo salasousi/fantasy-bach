@@ -30,10 +30,10 @@
                 <hr></hr>
                 <ul>
                     <% for(let i = 0; i < live.length; i++){ %>
-                        <h4><%= live[i].title %></h4>
+                        <h4><a href="/live/<%=live[i]._id%>"><%= live[i].title %></a></h4>
                         <p><%= live[i].body %></p>
-                        
                     <% } %>
+                
                 </ul>
             </div>
 

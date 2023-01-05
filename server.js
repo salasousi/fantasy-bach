@@ -5,6 +5,7 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 const session = require('express-session')
 const methodOverride = require('method-override')
+const Player = require('./models/team.js')
 
 
 
@@ -58,13 +59,19 @@ app.use('/rankings', rankingsController)
 ////I
 app.get('/', (req, res) => {
 	if (req.session.currentUser) {
-		res.render('dashboard.ejs', {
-			currentUser: req.session.currentUser
-		});
+		Player.find({}, (error, player) => {
+			res.render('dashboard.ejs', {
+				currentUser: req.session.currentUser,
+				player
+			})
+		})
 	} else {
-		res.render('index.ejs', {
-			currentUser: req.session.currentUser
-		});
+		Player.find({}, (error, player) => {
+			res.render('index.ejs', {
+				currentUser: req.session.currentUser,
+				player
+		})
+	})
 	}
 })
 
@@ -76,6 +83,14 @@ app.get('/', (req, res) => {
 ////C
 ////E
 ////S
+
+app.get("/:id", (req, res) => {
+    Player.findById(req.params.id, (error, foundPlayer)=>{
+        res.render("index.ejs", {
+            Player: foundPlayer,
+        })
+    })
+})
 
 
 // Listener

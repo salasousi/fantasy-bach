@@ -1,6 +1,6 @@
 <%- include('nav.ejs')  %>
 
-<div id="demo" class="carousel slide container" data-bs-ride="carousel" style="padding-top: 10%">
+<div id="demo" class="carousel slide container" data-bs-ride="carousel" style="padding-top: 5%">
 
 <div class="carousel-indicators">
     <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="WELCOME"></button>
@@ -33,7 +33,28 @@
 </button>
 </div>
 
-<div class="container mt-3">
-<h3>Carousel Example</h3>
-<p>The following example shows how to create a basic carousel with indicators and controls.</p>
+<div class="container mt-3 p-5">
+<h3>2023 Contestants</h3><hr></hr>
+
+
+<div class="row row-cols-3">
+    <% player.forEach (Player => { %>
+    <div class="col" style="padding-bottom:5%;">
+        <div class="card">
+            <img class="card-img-top" src=<%= Player.image %> alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title"><%= Player.name %></h4>
+              <p class="card-text"><%= Player.age %></p>
+              <p class="card-text"><%= Player.bio %></p>
+              <a href="#" class="btn btn-primary">See Profile</a>
+        
+            </div>
+        
+        </div>
+       
+    </div>
+    <% }) %>
+  
+
+
 </div>

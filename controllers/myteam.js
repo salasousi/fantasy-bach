@@ -7,12 +7,13 @@ const Player = require('../models/team.js')
 router.get('/', (req, res) => {
 	if (req.session.currentUser) {
 		res.render('myteam/index.ejs', {
-			currentUser: req.session.currentUser
-		});
+			currentUser: req.session.currentUser,
+            player: foundPlayers
+		})
 	} else {
 		res.render('index.ejs', {
 			currentUser: req.session.currentUser
-		});
+		})
 	}
 })
 

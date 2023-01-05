@@ -83,14 +83,14 @@ app.get('/', (req, res) => {
 ////C
 ////E
 ////S
-
 app.get("/:id", (req, res) => {
     Player.findById(req.params.id, (error, foundPlayer)=>{
-        res.render("index.ejs", {
-            Player: foundPlayer,
+        res.render("myteam/index.ejs", {
+            Player: foundPlayer
         })
     })
 })
+
 
 
 // Listener

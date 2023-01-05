@@ -36,25 +36,6 @@
 <div class="container mt-3 p-5">
 <h3>2023 Contestants</h3><hr></hr>
 
-
-<div class="row row-cols-3">
-    <% player.forEach (Player => { %>
-    <div class="col" style="padding-bottom:5%;">
-        <div class="card">
-            <img class="card-img-top" src=<%= Player.image %> alt="Card image">
-            <div class="card-body">
-              <h4 class="card-title"><%= Player.name %></h4>
-              <p class="card-text"><%= Player.age %></p>
-              <p class="card-text"><%= Player.bio %></p>
-              <a href="#" class="btn btn-primary">See Profile</a>
-        
-            </div>
-        
-        </div>
-       
-    </div>
-    <% }) %>
+    <%- include('card.ejs')  %>
   
-
-
 </div>

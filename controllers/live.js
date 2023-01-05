@@ -16,11 +16,6 @@ router.get('/', (req, res) => {
 
 
 
-//New
-router.get('/new', (req, res) => {
-	    res.render('live/new.ejs')
-})
-
 //Delete-- NEED TO FIGURE OUT AUTHENTICATION FOR DELETE GRANTED ONLY TO USER WHO POSTED
 router.delete('/:id', (req, res) => {
     // if (req.session.currentUser) {

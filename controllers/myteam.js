@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 })
 
 ///N
-router.get('/myteam', (req, res) => {
+router.get('/add', (req, res) => {
     if (req.session.currentUser) {
 	    res.render('myteam/new.ejs', {
             currentUser: req.session.currentUser

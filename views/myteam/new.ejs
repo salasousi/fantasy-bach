@@ -14,14 +14,38 @@
 
 <body>
 	<header>
-		<h1>Add a Player</h1>
-		<%- include('../partials/nav.ejs')  %>
+        <%- include('../partials/nav.ejs') %>
 	</header>
+
 	<main>
-		<form action="/myteam" method="POST">
-			<input type="text" name="name" placeholder="name" /><br />
-			<input type="submit" value="Add to team" />
-		</form>
+        <div class="container mt-5" style="padding-top: 5%;">
+
+        </div>
+		<div class="row row-cols-3">
+            
+            <% player.forEach (Player => { %>
+            <div class="col" style="padding-bottom:5%;">
+                <div class="card">
+                    <form action="/myteam" method="POST">
+                        <input type="hidden" name="image" value="<%= Player.image %>"> 
+                        <img class="card-img-top" src=<%= Player.image %> alt="Card image">
+
+                        <div class="card-body">
+                            <h4 class="card-title"><input type="text" name="name" value="<%= Player.name %>"></h4>
+                            <p class="card-text"><input type="number" name="age" value="<%= Player.age %>"></p>
+                            <p class="card-text"><input type="text" name="bio" value="<%= Player.bio %>"></p>
+                      
+                            <input type="submit" value="Add player" />
+                    </form>
+                        </div>
+              
+                </div>
+               
+            </div>
+            <% }) %>
+    
+
+
 	</main>
 </body>
 

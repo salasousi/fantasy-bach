@@ -2,13 +2,14 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const playerSchema = new Schema({
+const teamSchema = new Schema({
 	name: String,
     age: Number,
 	bio: String,
     image: String,
+    start: Boolean,
 })
 
-const Player = mongoose.model('Player', playerSchema)
+const MyTeam = mongoose.model('MyTeam', teamSchema)
 
-module.exports = Player
+module.exports = MyTeam

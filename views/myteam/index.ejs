@@ -23,13 +23,50 @@
         <hr></hr>
         <h4>Starting Lineup</h4>
         <br />
-        <img src="" class="rounded-circle float-start" alt="Cinque Terre" width="200" height="200">
-        <img src="" class="rounded-circle" alt="Cinque Terre" width="200" height="200" style="margin-left:20%;">
-        <img src="" class="rounded-circle float-end" alt="Cinque Terre" width="200" height="200"><br />
-    
+
+        <% if ( player.start == true ) { %>
+           <% for (let i = 0; i < player.length; i++) { %>
+         
+        
+
+        <img src=<%= player[i].image %> class="rounded-circle float-start" alt="Cinque Terre" width="200" height="200">
+        <img src=<%= player[i].image %> class="rounded-circle" alt="Cinque Terre" width="200" height="200" style="margin-left:20%;">
+        <img src=<%= player[i].image %> class="rounded-circle float-end" alt="Cinque Terre" width="200" height="200"><br />
+        
+        <% }} %>
+
     </div>
-    
-    <h1>Players: </h1>
+
+    <div class="container-fluid mt-5">
+        <h1>Players: </h1>
+        <hr></hr>
+    </div>
+
+    <div class="row row-cols-3">
+        <% player.forEach (Player => { %>
+        <div class="col" style="padding-bottom:5%;">
+            <div class="card">
+                <img class="card-img-top" src=<%= Player.image %> alt="Card image">
+                <div class="card-body">
+                  <h4 class="card-title"><%= Player.name %></h4>
+                  <p class="card-text"><%= Player.age %></p>
+                  <p class="card-text"><%= Player.bio %></p>
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="check1" name="start" value="something" checked>
+                    <label class="form-check-label">Start this Player</label>
+                  </div>
+                  <br />
+                  <form action="/myteam/<%=Player._id%>?_method=DELETE" method="POST">
+                    <input class="btn btn-danger" type="submit" value="Remove Player from Team" />
+                  </form>
+                
+                </div>
+            
+            </div>
+           
+        </div>
+        <% }) %>
 
 
 </body>

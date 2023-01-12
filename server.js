@@ -52,8 +52,11 @@ app.use('/rules', rulesController)
 const teamController = require('./controllers/myteam.js')
 app.use('/myteam', teamController)
 
+
 const rankingsController = require('./controllers/rankings.js')
 app.use('/rankings', rankingsController)
+
+
 
 
 ////I
@@ -83,13 +86,14 @@ app.get('/', (req, res) => {
 ////C
 ////E
 ////S
-app.get("/:id", (req, res) => {
-    Player.findById(req.params.id, (error, foundPlayer)=>{
-        res.render("myteam/index.ejs", {
-            Player: foundPlayer
-        })
-    })
-})
+
+// app.get("/:id", (req, res) => {
+//     Player.findById(req.params.id, (error, foundPlayer)=>{
+//         res.render("myteam/index.ejs", {
+//             Player: foundPlayer
+//         })
+//     })
+// })
 
 
 

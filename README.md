@@ -32,7 +32,8 @@
   
   
 <h2>Getting Started:</h2>
-
+https://fantasy-bachelor.herokuapp.com
+  
 <h2>Future Enhancements</h2>
 <li>Updates to the 'Rankings' page, includes edits shown on the index page for rankings route</li>
 <li>Updates to the 'My Team' page, includes rendering the images of the starting players in the header container</li>
